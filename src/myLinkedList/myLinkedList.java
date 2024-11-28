@@ -11,22 +11,22 @@ class Node{
 
 public class myLinkedList {
     public Node head;
+    public Node tail;
 
     public myLinkedList(){
         head=null;
+        tail=null;
     }
 
     public void insert(int value){
         Node node = new Node(value);
         if(head==null){
-            head=node;
+            head=tail=node;
+
         }
         else{
-            Node current = head;
-            while(current.next != null){
-                current=current.next;
-            }
-            current.next=node;
+           tail.next=node;
+           tail=node;
 
         }
     }
