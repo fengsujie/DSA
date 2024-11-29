@@ -11,5 +11,13 @@ public class Main {
 
 
         ob.printList();
+
+        System.out.println("Sum of all elements of linked list is : "+ob.sum());
+
+        System.out.println("Index : "+ob.indexOf(55));
+
+        ob.insertAtFirst(99);
+        ob.insert(66);
+        ob.printList();
     }
 }
