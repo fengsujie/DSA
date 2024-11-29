@@ -19,5 +19,12 @@ public class Main {
         ob.insertAtFirst(99);
         ob.insert(66);
         ob.printList();
+
+        ob.insertAt(2,77);
+        ob.printList();
+
+
+        ob.reverse();
+        ob.printList();
     }
 }

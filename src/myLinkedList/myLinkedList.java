@@ -84,4 +84,37 @@ public class myLinkedList {
     public boolean isEmpty(){
         return head==null && tail==null;
     }
+
+    public void insertAt(int index, int value){
+        if(isEmpty()) throw new IllegalArgumentException();
+        Node node = new Node(value);
+        Node current = head;
+        Node prev = null;
+
+        while(index>0 && current !=null){
+            prev=current;
+            current=current.next;
+            index--;
+        }
+        prev.next=node;
+        node.next=current;
+    }
+
+    public void reverse(){
+        if(head ==null || head.next==null) return;
+
+        Node prev= null;
+        Node current = head;
+        Node next = head.next;
+
+        while(next!=null){
+            current.next = prev;
+            prev=current;
+            current=next;
+            next=next.next;
+        }
+
+        head=current;
+        current.next=prev;
+    }
 }
