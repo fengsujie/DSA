@@ -20,11 +20,26 @@ public class Main {
         ob.insert(66);
         ob.printList();
 
+        System.out.println("Inserting node at certain index : ");
         ob.insertAt(2,77);
         ob.printList();
 
 
         ob.reverse();
+        System.out.println("Reverse linked list : ");
         ob.printList();
+
+        ob.removeStart();
+        System.out.println("Removing first element from linked list : ");
+        ob.printList();
+
+        ob.removeEnd();
+        System.out.println("Removing last element from linked list : ");
+        ob.printList();
+
+        ob.removeNthFromEnd(2);
+        System.out.println("After removing nth node");
+        ob.printList();
+
     }
 }

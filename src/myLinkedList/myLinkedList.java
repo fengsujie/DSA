@@ -117,4 +117,61 @@ public class myLinkedList {
         head=current;
         current.next=prev;
     }
+
+//    deleting node from the beginning
+    public void removeStart(){
+        if(isEmpty()) return;
+
+        Node temp=head;
+        head=head.next;
+        temp.next=null;
+    }
+
+//    removing node from the last
+public void removeEnd() {
+    if (isEmpty()) {
+        System.out.println("The list is already empty.");
+        return;
+    }
+    if (head == tail) {
+        head = tail = null;
+        return;
+    }
+    Node current = head;
+    while (current != null && current.next != null && current.next != tail) {
+        current = current.next;
+    }
+    if (current != null) {
+        current.next = null;
+        tail = current;
+    }
+}
+
+// removing from nth end
+    public void removeNthFromEnd(int n){
+        if(head.next == null){
+            head=null;
+            return;
+        }
+
+        int totalNodes=0;
+        Node current=head;
+        while (current!=null){
+            totalNodes++;
+            current=current.next;
+        }
+
+        int indexFromFront = totalNodes-n+1;
+
+        Node prev = null;
+        current=head;
+        while(indexFromFront>1 && current!=null){
+            prev=current;
+            current=current.next;
+            indexFromFront--;
+        }
+
+        prev.next=current.next;
+        current.next=null;
+}
 }
