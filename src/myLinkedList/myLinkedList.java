@@ -185,5 +185,27 @@ public Node swapPairs(Node head) {
     head.next=rest;
     return second;
 }
+
+// reversing nodes in k group
+public Node reverseKGroup(Node head, int k) {
+    if(head==null || head.next == null){
+        return head;
+    }
+
+    Node prev=null;
+    Node next=null;
+    Node current=head;
+    int count =0;
+    while(count < k && current != null){
+        next=current.next;
+        current.next=prev;
+        prev=current;
+        current=next;
+        count++;
+    }
+    Node rest=reverseKGroup(current,k);
+    head.next=rest;
+    return prev;
+}
 }
 
