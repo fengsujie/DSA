@@ -244,5 +244,43 @@ public Node middleNode(Node head) {
     }
     return head;
 }
+
+// linked list cycle
+public boolean hasCycle(Node head) {
+    if(head==null || head.next==null)
+    {
+        return false;
+    }
+
+    Node slow=head;
+    Node fast=head;
+    while(fast!=null && fast.next!=null){
+        slow=slow.next;
+        fast=fast.next.next;
+        if(fast==slow){
+            return true;
+        }
+
+    }
+    return false;
+}
+
+// delete duplicate nodes
+public Node deleteDuplicates(Node head) {
+    if(head==null || head.next==null) return head;
+
+    Node current=head;
+
+    while(current!=null && current.next!=null){
+        if(current.data==current.next.data){
+            Node nextNode=current.next;
+            current.next=nextNode.next;
+            nextNode.next=null;
+        }else{
+            current=current.next;
+        }
+    }
+    return head;
+}
 }
 
