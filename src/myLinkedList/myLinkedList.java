@@ -174,4 +174,16 @@ public void removeEnd() {
         prev.next=current.next;
         current.next=null;
 }
+
+// swapping nodes in pairs
+public Node swapPairs(Node head) {
+    if(head==null || head.next==null) return head;
+
+    Node rest = swapPairs(head.next.next);
+    Node second = head.next;
+    second.next=head;
+    head.next=rest;
+    return second;
 }
+}
+
