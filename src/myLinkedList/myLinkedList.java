@@ -234,5 +234,15 @@ public Node reverseKGroup(Node head, int k) {
         head.next = reverseKGroup2(current, k);
         return prev;
     }
+
+//    middle node of the linked list
+public Node middleNode(Node head) {
+    Node fast=head;
+    while(fast!=null && fast.next!=null){
+        head=head.next;
+        fast=fast.next.next;
+    }
+    return head;
+}
 }
 
