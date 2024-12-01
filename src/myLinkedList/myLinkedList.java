@@ -207,5 +207,32 @@ public Node reverseKGroup(Node head, int k) {
     head.next=rest;
     return prev;
 }
+
+    public Node reverseKGroup2(Node head, int k) {
+        Node current = head;
+        int count = 0;
+        while (current != null && count < k) {
+            current = current.next;
+            count++;
+        }
+
+        if (count < k) {
+            return head;
+        }
+
+        Node prev = null;
+        current = head;
+        Node next = null;
+
+        for (int i = 0; i < k; i++) {
+            next = current.next;
+            current.next = prev;
+            prev = current;
+            current = next;
+        }
+
+        head.next = reverseKGroup2(current, k);
+        return prev;
+    }
 }
 
