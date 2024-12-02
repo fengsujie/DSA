@@ -1,5 +1,7 @@
 package myStack;
 
+import java.util.EmptyStackException;
+
 public class ms {
     private int[] items;
     private int top;
@@ -19,6 +21,21 @@ public class ms {
         }
         this.items[this.top]=value;
         this.top++;
+    }
+//    pop function
+    public int pop(){
+        if(top==0){
+            throw new EmptyStackException();
+        }
+        this.top--;
+        int value=items[top];
+        items[top]=0;
+        return value;
+    }
+
+//    peek function
+    public int peek(){
+        return items[top-1];
     }
 
 //    toString

@@ -10,5 +10,9 @@ public class Main {
         stack.push(55);
 
         System.out.println(stack);
+
+        System.out.println(stack.pop());
+
+        System.out.println(stack.peek());
     }
 }
